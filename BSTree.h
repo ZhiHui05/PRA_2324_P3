@@ -4,6 +4,7 @@
 #include <ostream>
 #include <stdexcept>
 #include "BSNode.h"
+#include "TableEntry.h"
 //TERMINADO SERACH E INSERT
 //FALTA AUN
 template <typename T> 
@@ -18,10 +19,10 @@ class BSTree {
 	T search(BSNode<T> *n, T e) const{
 		if (n == nullptr){
 			throw std::runtime_error("Elemento no encontrado");				}
-		else if( n->elem < e){
+		else if((n->elem) < e){
 			return search(n->right,e);
 		}
-		else if (n->elem > e){
+		else if ((n->elem) > e){
 			return search(n->left,e);
 		}
 		else
@@ -32,10 +33,10 @@ class BSTree {
 		if (n == nullptr){
 			return new BSNode<T>(e);
 		}
-		else if ( n->elem == e){
+		else if (( n->elem) == e){
 			throw std::runtime_error("Elemento ya existente");
 		}
-		else if ( n->elem < e){
+		else if ( (n->elem) < e){
 			n->right = insert(n->right,e);
 		}
 		else
@@ -56,10 +57,10 @@ class BSTree {
 		if( n == nullptr){
 		throw std::runtime_error("Error Tree vacío");
 		}	
-		else if (n->elem < e){
+		else if ((n->elem) < e){
 			n->right = remove(n->right,e);
 		}
-		else if (n->elem > e){
+		else if ((n->elem) > e){
 			n->left = remove(n->left,e);
 		}
 		else{
